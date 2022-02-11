@@ -22,7 +22,7 @@ jobs:
            git config --global user.name "${GIT_NAME}"
            git config --global color.ui false
            mkdir -p tmp
-           git clone --depth=1 https://github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME} -b ${CIRCLE_BRANCH} tmp
+           https://github.com/The3ven/recovery.git tmp
            mv tmp/.circleci/build.sh . && rm -rf tmp
            bash build.sh
 workflows:
