@@ -12,8 +12,7 @@ function sticker() {
 }
 
 function tmate() {
-    apt update && apt upgrade \
-    apt install tmate -y && tmate && tmate show-message \
+    tmate && tmate show-message \
     echo "Done"
 }
 
