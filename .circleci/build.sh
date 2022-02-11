@@ -65,8 +65,8 @@ function push() {
 
 
 
-sendSticker
+sticker
 sendinfo
-pbrp
-push
+#pbrp
+#push
 tmate
