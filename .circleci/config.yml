@@ -1,0 +1,30 @@
+version: 2.1
+jobs:
+  build:
+   docker:
+      - image: ubuntu:18.04
+   environment:
+      GIT_EMAIL: 'the3ven@gmail.com'
+      GIT_NAME: 'The3ven'
+      VERSION: '3.0.0'
+      PBRP_MANIFEST: 'android-11.0'
+      VENDOR: 'realme'
+      DEVICE: 'RMX3195'
+   steps:
+      - run:
+          command: |
+           echo -e "machine github.com\n  login $GITHUB_TOKEN" > ~/.netrc
+           apt-get -y update && apt-get -y upgrade && apt-get -y install bc bison build-essential curl flex g++-multilib gcc gcc-multilib clang git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libsdl1.2-dev libwxgtk3.0-dev libxml2 libxml2-utils lzop pngcrush schedtool squashfs-tools xsltproc zip zlib1g-dev unzip openjdk-8-jdk python ccache libtinfo5 repo libstdc++6 wget libssl-dev rsync golang-go
+           mkdir -p ~/bin
+           curl --create-dirs -L -o /usr/local/bin/repo -O -L https://storage.googleapis.com/git-repo-downloads/repo
+           chmod a+rx /usr/local/bin/repo
+           git config --global user.email "${GIT_EMAIL}"
+           git config --global user.name "${GIT_NAME}"
+           git config --global color.ui false
+           bash .circleci/build.sh
+workflows:
+  version: 2.1
+  cooking:
+    jobs:
+      - build:
+          context: THE EVEN
