@@ -4,12 +4,7 @@ on:
   release:
     types: [published]
   push:
-    branches:
-      - master
-    paths:
-      - '.config'
-  watch:
-    types: [started]
+  
 
 env:
   MANIFEST: https://github.com/PitchBlackRecoveryProject/manifest_pb.git
